@@ -88,3 +88,6 @@ app.get('/notify/all', function (req, res) {
 
   res.send('Notification sent!');
 });
+
+app.listen(8080, function () {
+})

@@ -35,11 +35,11 @@ setInterval(function() {
 }, pushInterval * 1000);
 
 app.listen(3000, function () {
-  app.get('vapidPublicKey', function(req, res) {
+  app.get('/vapidPublicKey', function(req, res) {
     res.send(process.env.VAPID_PUBLIC_KEY);
   });
 
-  app.post('register', function(req, res) {
+  app.post('/register', function(req, res) {
     var subscription = req.body.subscription;
     if (!subscriptions[subscription.endpoint]) {
       console.log('Subscription registered ' + subscription.endpoint);
@@ -48,7 +48,7 @@ app.listen(3000, function () {
     res.type('js').send('{"success":true}');
   });
 
-  app.post('unregister', function(req, res) {
+  app.post('/unregister', function(req, res) {
     var subscription = req.body.subscription;
     if (subscriptions[subscription.endpoint]) {
       console.log('Subscription unregistered ' + subscription.endpoint);

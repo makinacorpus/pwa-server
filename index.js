@@ -34,7 +34,7 @@ setInterval(function() {
   Object.values(subscriptions).forEach(sendNotification);
 }, pushInterval * 1000);
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
   app.get('/vapidPublicKey', function(req, res) {
     res.send(process.env.VAPID_PUBLIC_KEY);
   });
